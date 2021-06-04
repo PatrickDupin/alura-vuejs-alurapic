@@ -8,11 +8,19 @@
 <!--    <p>{{ filtro }}</p> -->
 
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for=" foto of fotosComFiltro ">
+      <li class="lista-fotos-item" v-for=" foto of fotosComFiltro " v-bind:key="foto.id">
 
         <meu-painel :titulo="foto.titulo">
 
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+
+          <!-- passando foto como parâmetro do método remove do componente Home -->
+          <meu-botao 
+            tipo="button" 
+            rotulo="REMOVER" 
+            @botaoAtivado="remove(foto)" 
+            :confirmacao="true" 
+            estilo="perigo" />
 
         </meu-painel>
 
@@ -25,12 +33,14 @@
 <script>
 import Painel from '../shared/painel/Painel.vue';
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
+import Botao from '../shared/botao/Botao.vue'
 
 export default {
 
   components: {
     'meu-painel' : Painel,
-    'imagem-responsiva' : ImagemResponsiva
+    'imagem-responsiva' : ImagemResponsiva,
+    'meu-botao' : Botao
   },
 
   data() {
@@ -57,6 +67,15 @@ export default {
       }
     }
 
+  },
+
+  methods: {
+
+      remove(foto) {
+
+        alert('Remover a foto ' + foto.titulo);
+
+      }
   },
 
   created() {
