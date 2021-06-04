@@ -12,7 +12,8 @@
 
         <meu-painel :titulo="foto.titulo">
 
-          <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
+          <!-- <imagem-responsiva v-meu-transform="{increment: 15, animate: true}" :url="foto.url" :titulo="foto.titulo" /> -->
+          <imagem-responsiva v-meu-transform.animate.reverse="15" :url="foto.url" :titulo="foto.titulo" />
 
           <!-- passando foto como parâmetro do método remove do componente Home -->
           <meu-botao 

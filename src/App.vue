@@ -4,7 +4,7 @@
     <meu-menu :rotas="routes"> </meu-menu>
     
     <transition name="pagina-fade">
-      <router-view> </router-view>
+      <router-view />
     </transition>
 
   </div>
@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .corpo {
     font-family: Helvetica, sans-serif;
     width: 96%;
