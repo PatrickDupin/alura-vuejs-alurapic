@@ -13,7 +13,8 @@
         <meu-painel :titulo="foto.titulo">
 
           <!-- <imagem-responsiva v-meu-transform="{increment: 15, animate: true}" :url="foto.url" :titulo="foto.titulo" /> -->
-          <imagem-responsiva v-meu-transform.animate.reverse="15" :url="foto.url" :titulo="foto.titulo" />
+          <!--<imagem-responsiva v-meu-transform.animate.reverse="15" :url="foto.url" :titulo="foto.titulo" />-->
+          <imagem-responsiva v-meu-transform:scale.animate="1.2" :url="foto.url" :titulo="foto.titulo" />
 
           <!-- passando foto como parâmetro do método remove do componente Home -->
           <meu-botao 
@@ -36,12 +37,20 @@ import Painel from '../shared/painel/Painel.vue';
 import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue'
 import Botao from '../shared/botao/Botao.vue'
 
+// Caso queira usar a Diretiva exportada pelo arquivo Transform2.js
+import transform from '../../directives/Transform2';
+
 export default {
 
   components: {
     'meu-painel' : Painel,
     'imagem-responsiva' : ImagemResponsiva,
     'meu-botao' : Botao
+  },
+
+  // declarar a diretiva que está sendo importada
+  directives: {
+    'meu-transform' : transform,
   },
 
   data() {

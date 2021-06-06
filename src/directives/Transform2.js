@@ -1,30 +1,14 @@
-import Vue from 'vue';
-
-Vue.directive('meu-transform', {
+export default {
+    /**
+     * 
+     * O módulo Transform agora exporta um objeto que contém as configurações da nossa diretiva. Inclusive veja que nenhum nome foi definido para ela.
+     * Por fim, precisamos alterar o componente alurapic/src/components/home/Home.vue para importar nossa diretiva e adicioná-la ao componente
+     * 
+     */
 
     bind(el, binding, vnode) {
 
         let current = 0;
-
-        // v-meu-transform="{increment: 15, animate: true}"
-        // el.addEventListener('dblclick', function () {
-        //     let incremento = 90;
-        //     let animate = false;
-
-        //     if (binding.value) {
-
-        //         incremento = binding.value.increment;
-        //         animate = binding.value.animate;
-        //     }
-
-        //     current += incremento;
-        //     this.style.transform = `rotate(${current}deg)`;
-
-        //     if (animate) {
-
-        //         this.style.transition = 'transform 0.5s';
-        //     }
-        // });
 
         el.addEventListener('dblclick', function () {
             let incremento = binding.value || 90;
@@ -54,4 +38,5 @@ Vue.directive('meu-transform', {
             }
         });
     }
-});
+
+}
